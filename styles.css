@@ -1,0 +1,314 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=PT+Mono&display=swap');
+
+:root {
+  --bg-gradient-start: #FFE6E6;
+  --bg-gradient-end: #D6C8F7; /* нежный лавандовый вместо яркого пурпура */
+
+  /* Подложка в стиле lanternkeeper */
+  --bg-container: rgba(255, 255, 255, 0.15);
+  --border-container: rgba(255, 255, 255, 0.3);
+
+  --bg-slide: rgba(255, 255, 255, 0.25);
+  --border-slide: rgba(255, 255, 255, 0.35);
+
+  --color-primary: #AD88C6;
+  --color-heading: #AD88C6;
+  --color-border: rgba(116, 105, 182, 0.7);
+  --text-color: #2e2a32;
+  --text-light: #5b506f;
+}
+
+/* Общие стили */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'PT Mono', monospace;
+  background: linear-gradient(180deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+  color: var(--text-color);
+  line-height: 1.6;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Контейнер */
+.container {
+  max-width: 960px;
+  margin: 2rem auto;
+  padding: 2rem 2.5rem;
+  background: var(--bg-container);
+  border-radius: 16px;
+  border: 1px solid var(--border-container);
+  backdrop-filter: saturate(180%) blur(12px);
+  -webkit-backdrop-filter: saturate(180%) blur(12px);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+/* Хедер */
+header {
+  text-align: center;
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.logo {
+  font-family: 'Great Vibes', cursive;
+  font-size: 3.2rem;
+  color: var(--color-primary);
+  margin-bottom: 0.4rem;
+}
+
+nav ul {
+  list-style: none;
+  display: inline-flex;
+  gap: 2rem;
+  padding: 0;
+  margin: 1rem 0 0;
+}
+
+nav ul li a {
+  color: var(--color-primary);
+  font-weight: bold;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+nav ul li a:hover {
+  border-bottom-color: var(--color-primary);
+}
+
+/* Divider */
+.divider {
+  display: block;
+  margin: 1rem auto 2rem;
+  width: 140px;
+  opacity: 0.2;
+}
+
+/* Заголовки секций */
+.services h2,
+.contact h2 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.6rem;
+  color: var(--color-heading);
+  text-align: center;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+section {
+  margin-bottom: 4rem;
+}
+
+/* Слайдер */
+.slider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.slides-wrapper {
+  overflow: hidden;
+  max-width: 600px;
+  border-radius: 16px;
+  background: var(--bg-slide);
+  border: 1px solid var(--border-slide);
+  backdrop-filter: saturate(180%) blur(8px);
+  -webkit-backdrop-filter: saturate(180%) blur(8px);
+  box-shadow:
+    0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.slides-container {
+  display: flex;
+  transition: transform 0.4s ease;
+}
+
+.slide {
+  min-width: 100%;
+  box-sizing: border-box;
+  padding: 2rem;
+  font-size: 1rem;
+}
+
+.slide h3 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2rem;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+}
+
+.slide p,
+.slide ul {
+  color: var(--text-light);
+}
+
+.slide ul {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+/* Кнопки слайдера */
+.slider-btn {
+  background: var(--color-primary);
+  border: none;
+  color: white;
+  font-size: 1.8rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  transition: background 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
+}
+
+.slider-btn:hover {
+  background: var(--color-heading);
+  transform: scale(1.05);
+}
+
+/* Портфолио сетка */
+
+.portfolio h2 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.6rem;
+  color: var(--color-heading);
+  text-align: center;
+  margin-bottom: 1rem;
+  position: relative;
+}
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+  gap: 1.5rem;
+}
+
+.portfolio-item {
+  background: var(--bg-slide);
+  border: 1px solid var(--border-slide);
+  border-radius: 16px;
+  padding: 1rem;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.portfolio-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.15);
+}
+
+.portfolio-item img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 0.8rem;
+  display: block;
+}
+
+.portfolio-item .info h3 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 1.8rem;
+  color: var(--color-primary);
+  margin: 0 0 0.4rem 0;
+}
+
+.portfolio-item .info p {
+  color: var(--text-light);
+  margin: 0;
+  font-size: 1rem;
+}
+
+/* Контакт */
+.contact p {
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.contact a {
+  color: var(--color-primary);
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+/* Футер */
+footer {
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--color-border);
+  padding-top: 2rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.header-decor,
+.footer-decor {
+  opacity: 0.1;
+  display: block;
+  margin: 0 auto;
+  max-width: 120px;
+}
+
+/* Адаптив */
+@media (max-width: 600px) {
+  .container {
+    padding: 1.5rem;
+    margin: 1rem;
+  }
+
+  .slides-wrapper {
+    width: 100%;
+  }
+
+  .slide {
+    padding: 1.5rem;
+  }
+
+  .logo {
+    font-size: 2.4rem;
+  }
+}
+
+.whatsapp-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-primary);
+  color: white;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  text-decoration: none;
+  box-shadow:
+    0 0 0 0 var(--color-primary);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+  will-change: transform;
+  animation: pulse 2.5s infinite;
+}
+
+/* Пульсация */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(173, 136, 198, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 12px rgba(173, 136, 198, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(173, 136, 198, 0);
+  }
+}
+
+/* Наведение */
+.whatsapp-btn:hover,
+.whatsapp-btn:focus {
+  transform: scale(1.1);
+  box-shadow:
+    0 4px 12px rgba(173, 136, 198, 0.6),
+    0 0 14px rgba(173, 136, 198, 0.8);
+  animation-play-state: paused; /* останавливаем пульсацию при ховере */
+  outline: none;
+}
